@@ -8,7 +8,6 @@ const Navbar = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogin = () => {
     const user = usersData.find(
@@ -32,187 +31,226 @@ const Navbar = () => {
   };
 
   return (
-    <nav style={styles.navbar}>
-      <div style={styles.logo}>
-        <h2>Educación para Todos</h2>
+    <nav
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "10px 20px",
+        backgroundColor: "#343a40",
+        color: "white",
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <h1 style={{ margin: "0 20px", fontSize: "1.5rem" }}>Educación para Todos</h1>
+        <ul
+          style={{
+            display: "flex",
+            listStyle: "none",
+            gap: "15px",
+            margin: 0,
+            padding: 0,
+          }}
+        >
+          <li>
+            <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+              Inicio
+            </Link>
+          </li>
+          <li>
+            <Link to="/inicial" style={{ color: "white", textDecoration: "none" }}>
+              Nivel Inicial
+            </Link>
+          </li>
+          <li>
+            <Link to="/primaria" style={{ color: "white", textDecoration: "none" }}>
+              Primaria
+            </Link>
+          </li>
+          <li>
+            <Link to="/secundaria" style={{ color: "white", textDecoration: "none" }}>
+              Secundaria
+            </Link>
+          </li>
+        </ul>
       </div>
-      <button
-        style={styles.menuButton}
-        onClick={() => setMenuOpen((prev) => !prev)}
-      >
-        ☰
-      </button>
-      <ul style={{ ...styles.navLinks, display: menuOpen ? "block" : "none" }}>
-        <li>
-          <Link style={styles.link} to="/">
-            Inicio
-          </Link>
-        </li>
-        <li>
-          <Link style={styles.link} to="/inicial">
-            Nivel Inicial
-          </Link>
-        </li>
-        <li>
-          <Link style={styles.link} to="/primaria">
-            Primaria
-          </Link>
-        </li>
-        <li>
-          <Link style={styles.link} to="/secundaria">
-            Secundaria
-          </Link>
-        </li>
-      </ul>
-      <div style={styles.buttons}>
-        <button style={styles.button} onClick={() => setShowLogin(true)}>
+
+      <div style={{ display: "flex", gap: "10px" }}>
+        <button
+          onClick={() => setShowLogin(true)}
+          style={{
+            backgroundColor: "#007bff",
+            color: "white",
+            border: "none",
+            padding: "10px 20px",
+            borderRadius: "5px",
+            cursor: "pointer",
+          }}
+        >
           Iniciar Sesión
         </button>
-        <button style={styles.button} onClick={() => setShowRegister(true)}>
+        <button
+          onClick={() => setShowRegister(true)}
+          style={{
+            backgroundColor: "#28a745",
+            color: "white",
+            border: "none",
+            padding: "10px 20px",
+            borderRadius: "5px",
+            cursor: "pointer",
+          }}
+        >
           Registrarse
         </button>
       </div>
 
       {/* Modal de Inicio de Sesión */}
       {showLogin && (
-        <div style={styles.modal}>
+        <div
+          style={{
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            backgroundColor: "white",
+            padding: "20px",
+            borderRadius: "8px",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+            zIndex: 1000,
+          }}
+        >
           <h3>Iniciar Sesión</h3>
           <input
             type="text"
             placeholder="Usuario"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            style={styles.input}
+            style={{
+              display: "block",
+              marginBottom: "10px",
+              width: "100%",
+              padding: "10px",
+            }}
           />
           <input
             type="password"
             placeholder="Contraseña"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            style={styles.input}
+            style={{
+              display: "block",
+              marginBottom: "10px",
+              width: "100%",
+              padding: "10px",
+            }}
           />
-          <button style={styles.modalButton} onClick={handleLogin}>
-            Ingresar
-          </button>
-          <button style={styles.modalButton} onClick={() => setShowLogin(false)}>
-            Cerrar
-          </button>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <button
+              onClick={handleLogin}
+              style={{
+                backgroundColor: "#007bff",
+                color: "white",
+                border: "none",
+                padding: "10px 20px",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+            >
+              Ingresar
+            </button>
+            <button
+              onClick={() => setShowLogin(false)}
+              style={{
+                backgroundColor: "#dc3545",
+                color: "white",
+                border: "none",
+                padding: "10px 20px",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+            >
+              Cerrar
+            </button>
+          </div>
         </div>
       )}
 
       {/* Modal de Registro */}
       {showRegister && (
-        <div style={styles.modal}>
+        <div
+          style={{
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            backgroundColor: "white",
+            padding: "20px",
+            borderRadius: "8px",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+            zIndex: 1000,
+          }}
+        >
           <h3>Registrarse</h3>
           <input
             type="text"
             placeholder="Usuario"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            style={styles.input}
+            style={{
+              display: "block",
+              marginBottom: "10px",
+              width: "100%",
+              padding: "10px",
+            }}
           />
           <input
             type="password"
             placeholder="Contraseña"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            style={styles.input}
+            style={{
+              display: "block",
+              marginBottom: "10px",
+              width: "100%",
+              padding: "10px",
+            }}
           />
-          <button style={styles.modalButton} onClick={handleRegister}>
-            Registrar
-          </button>
-          <button
-            style={styles.modalButton}
-            onClick={() => setShowRegister(false)}
-          >
-            Cerrar
-          </button>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <button
+              onClick={handleRegister}
+              style={{
+                backgroundColor: "#28a745",
+                color: "white",
+                border: "none",
+                padding: "10px 20px",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+            >
+              Registrar
+            </button>
+            <button
+              onClick={() => setShowRegister(false)}
+              style={{
+                backgroundColor: "#dc3545",
+                color: "white",
+                border: "none",
+                padding: "10px 20px",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+            >
+              Cerrar
+            </button>
+          </div>
         </div>
       )}
 
-      {message && <p style={styles.message}>{message}</p>}
+      {message && (
+        <p style={{ color: "#28a745", marginTop: "10px", textAlign: "center" }}>{message}</p>
+      )}
     </nav>
   );
-};
-
-const styles = {
-  navbar: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: "10px 20px",
-    backgroundColor: "#f0f0f0",
-    borderBottom: "1px solid #ddd",
-  },
-  logo: {
-    fontWeight: "bold",
-  },
-  menuButton: {
-    display: "none",
-    fontSize: "24px",
-    background: "none",
-    border: "none",
-    cursor: "pointer",
-  },
-  navLinks: {
-    listStyle: "none",
-    display: "flex",
-    gap: "15px",
-    margin: 0,
-    padding: 0,
-  },
-  link: {
-    textDecoration: "none",
-    color: "#333",
-    fontSize: "16px",
-  },
-  buttons: {
-    display: "flex",
-    gap: "10px",
-  },
-  button: {
-    padding: "8px 16px",
-    fontSize: "16px",
-    backgroundColor: "#007BFF",
-    color: "white",
-    border: "none",
-    borderRadius: "4px",
-    cursor: "pointer",
-  },
-  modal: {
-    position: "absolute",
-    top: "20%",
-    left: "50%",
-    transform: "translate(-50%, -20%)",
-    backgroundColor: "#fff",
-    padding: "20px",
-    border: "1px solid #ccc",
-    borderRadius: "8px",
-    zIndex: 1000,
-    boxShadow: "0px 0px 10px rgba(0,0,0,0.1)",
-  },
-  modalButton: {
-    padding: "8px 16px",
-    fontSize: "14px",
-    margin: "5px",
-    backgroundColor: "#007BFF",
-    color: "white",
-    border: "none",
-    borderRadius: "4px",
-    cursor: "pointer",
-  },
-  input: {
-    display: "block",
-    width: "100%",
-    padding: "10px",
-    marginBottom: "10px",
-    borderRadius: "4px",
-    border: "1px solid #ddd",
-  },
-  message: {
-    color: "green",
-    marginTop: "10px",
-  },
 };
 
 export default Navbar;
