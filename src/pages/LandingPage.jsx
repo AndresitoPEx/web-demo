@@ -7,13 +7,13 @@ import logo from "../assets/logo.png";
 import people1 from "../assets/people1.jpg";
 import people2 from "../assets/people2.jpg";
 import people3 from "../assets/people3.jpg";
-import logo1 from "../assets/YOU.png";
-import logo2 from "../assets/SITE.png";
-import logo3 from "../assets/FACE.png";
-import logo4 from "../assets/INSTA.png";
+import logo1 from "../assets/youtube.png";
+import logo2 from "../assets/site.png";
+import logo3 from "../assets/face.png";
+import logo4 from "../assets/insta.png";
 import img from "../assets/buss.jpg";
 import minedu from "../assets/minedu.png";
-import uc from "../assets/UC.png";
+import uc from "../assets/uc.png";
 
 const LandingPage = () => {
   return (
