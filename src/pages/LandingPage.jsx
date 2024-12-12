@@ -13,7 +13,7 @@ import logo3 from "../assets/facebook.png";
 import logo4 from "../assets/instagram.png";
 import img from "../assets/buss.jpg";
 import minedu from "../assets/minedu.png";
-import uc from "../assets/uc.png";
+import uc from "../assets/continental.png";
 
 const LandingPage = () => {
   return (
